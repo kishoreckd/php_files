@@ -13,8 +13,9 @@
             <form action="/signup" method="post">
                 <div class="main">
                 <?php if(isset($_SESSION['already-exists'])) :?>
-                <h2> <?php echo   $_SESSION['already-exists'] ?> <h2>
+                <h2> <?php echo $_SESSION['already-exists'] ?> </h2>
                 <?php endif; ?>
+
 
                     <h2>Sign-Up</h2>
                     <label for="">UserName</label>

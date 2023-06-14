@@ -2,9 +2,7 @@
 
 
 require  "connection.php";
-
 session_start();
-
 $app =[];
 
 $app['db']=(new Database())->db;
@@ -13,8 +11,8 @@ $app['db']=(new Database())->db;
 $routes =[
     '/'=>'controllers/signup.php',
     '/signup'=>'controllers/signupquery.php',
-     '/home'=>'controllers/home.php'
-
+     '/home'=>'controllers/home.php',
+     '/logout'=>'controllers/logout.php'
 
 ];
 
