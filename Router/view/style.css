@@ -1,0 +1,92 @@
+.main {
+    /* text-align: center; */
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 80%);
+    transition: all 0.3s linear;
+    padding: 32px;
+    width: 23%;
+    margin-left: 472px;
+    margin-top: 55px;
+    display: block;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+} 
+input:invalid{
+    animation: shake 300ms;
+    color: red;
+
+  }
+
+  @keyframes shake{
+    25%{
+      transform: translateX(4px);
+    }
+    50%{
+      transform: translateX(-4px);
+    }
+    75%{
+      transform: translateX(4px);
+    }
+  }
+h2{
+text-align: center;
+font-style: italic;
+}
+
+input[type="text"], input[type="password"], input[type="email"]
+{
+    outline: none;
+    height: 35px;
+    width: 100%;
+}
+
+
+input[type="submit"] {
+    background-color: #0c8fc1;
+    height: 48px;
+    width: 114px;
+    background-color: #0c8fc1;
+    border-radius: 11px;
+    border-color: antiquewhite;
+    margin-top: 13px;
+    margin-left: 94px;
+    color: white;
+    font-size: 20px;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: white;
+    border-color: #0c8fc1;
+    color: #0c8fc1;
+}
+label{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    display: block;
+}
+a{
+    text-decoration: none;
+
+}
+
+
+button.logout {
+  background-color: #0c8fc1;
+  height: 48px;
+  width: 114px;
+  background-color: #0c8fc1;
+  border-radius: 11px;
+  border-color: antiquewhite;
+  margin-top: 13px;
+  margin-left: 94px;
+  color: white;
+  font-size: 20px;
+}
+button .logout:hover {
+  cursor: pointer;
+  background-color: white;
+  border-color: #0c8fc1;
+  color: #0c8fc1;
+}
