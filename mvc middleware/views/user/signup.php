@@ -10,10 +10,10 @@
 <body>
 
 
-            <form action="/sign" method="post">
+            <form action="/signUp" method="post">
                 <div class="main">
-                <?php if(isset($_SESSION['already-exists'])) :?>
-                <h2> <?php echo $_SESSION['already-exists'] ?> </h2>
+                <?php if(isset($_SESSION['Already-Exists'])) :?>
+                <h2> <?php print_r ($_SESSION['Already-Exists']) ?> </h2>
                 <?php endif; ?>
 
 

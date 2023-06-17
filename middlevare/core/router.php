@@ -28,11 +28,11 @@ class router
                 if ($route['uri']===$_SERVER['REQUEST_URI']){
 //                    print_r($route);
                     if ($route['middleware'] === 'auth') {
-                        (new authmiddlevare())->handling();
+                        (new authmiddleware())->handling();
                     }
 
                     if ($route['middleware'] === 'guest') {
-                        (new guestmiddlevare())->handling();
+                        (new guestmiddleware())->handling();
                     }
                     return $route['controller'];
                 }

@@ -10,7 +10,7 @@ class Database
         try{
             $this->db = new PDO
             (
-                'mysql:host=127.0.0.1;dbname=router',
+                'mysql:host=127.0.0.1;dbname=middlevare',
                 'admin',
                 'welcome'
             );

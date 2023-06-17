@@ -6,23 +6,23 @@ $password =$_POST['password'];
 
 
     try {
-        $check = $app['db']->query("SELECT * from registration WHERE email = '$email'");
+        $check = $app['db']->query("SELECT * from users WHERE email = '$email'");
         $exist = $check->fetchAll(PDO::FETCH_OBJ);
 //         echo $exist;
 
         if ($exist) {
             $_SESSION['already-exists'] = "This user already exists";
             print_r($_SESSION['already-exists']);
-            header("location:/");
+//            header("location:/signuplogic");
         }
         else
         {
 
-                $insert =$app['db']->query("INSERT into registration (username,email,password)
+                $insert =$app['db']->query("INSERT into users (username,email,password)
                             VALUES ('$name','$email','$password')");
                 $_SESSION['check'] = ['email' => $email];
 
-                header("location:/home");
+//                header("location:/");
 //                unset($_SESSION['already-exists']);
         }
     } catch (PDOException $e) {

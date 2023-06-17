@@ -1,7 +1,7 @@
 <?php
 
 
-class guestmiddlevare
+class guestmiddleware
 {
     public function handling(){
         if (isset($_SESSION['check'])){
