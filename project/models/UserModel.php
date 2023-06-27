@@ -27,7 +27,7 @@ class UserModel extends database {
     public function creatingtaskDb($taskname,$taskdescription,$projectid)
     {
 //
-        $this->db->query("Insert into tasks (task,task_description,project_id,is_delete) values ('$taskname','$taskdescription','$projectid',1)");
+        $this->db->query("Insert into tasks (task,task_description,project_id) values ('$taskname','$taskdescription','$projectid')");
 
     }
 

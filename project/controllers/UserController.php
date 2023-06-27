@@ -38,7 +38,6 @@ class UserController {
         $allprojects=$this->userModel->getAllProductsFromDb();
         $particularTask=$this->userModel->listOffTasks($projectId);
         $projectid=$id['projectId'];
-        echo $projectid;
         require "views/home.php";
 
     }
@@ -50,8 +49,6 @@ class UserController {
     }
 
     public function listOffAllProjects() {
-        // Retrieve all users from the UserModel and load the index view
-
         $allprojects=$this->userModel->getAllProductsFromDb();
         require 'views/home.php';
     }
