@@ -20,3 +20,11 @@ id int NOT null  AUTO_INCREMENT,
     PRIMARY KEY (id),
     FOREIGN KEY (project_id) REFERENCES projects(id)
 );
+
+CREATE TABLE images(
+id int NOT null AUTO_INCREMENT,
+    image_path varchar(255),
+    tasks_id int,
+    PRIMARY KEY(id),
+    FOREIGN KEY(tasks_id) REFERENCES tasks(id)
+);
