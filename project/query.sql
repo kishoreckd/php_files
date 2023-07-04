@@ -13,9 +13,9 @@ id int not null AUTO_INCREMENT,
     task varchar (255),
     task_description varchar(255),
     project_id int,
-        is_delete int,
      created_at timestamp,
     updated_at timestamp,
+    deleted_at timestamp null,
      PRIMARY key (task_id),
      FOREIGN KEY (project_id) REFERENCES projects(project_id)
 

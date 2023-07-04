@@ -38,7 +38,6 @@ class UserModel extends database {
        $datas=$query->fetchAll(PDO::FETCH_OBJ);
        return $datas;
 
-        // Retrieve all users from the database
     }
     public  function listOffTasks($projectId){
 
@@ -65,5 +64,14 @@ class UserModel extends database {
         $isdeletedcheck =$this->db->query("SELECT * From tasks where deleted_at  AND project_id=$projectId");
         $datas1=$isdeletedcheck->fetchAll(PDO::FETCH_OBJ);
         return$datas1;
+    }
+    public function deletedTaskcount($projectId){
+        $isdeletedcheck =$this->db->query("SELECT COUNT(id) FROM tasks WHERE deleted_at AND project_id ='$projectId';");
+         return$isdeletedcheck->fetch(PDO::FETCH_NUM);
+    }
+    public  function undeletedTaskcount($projectId){
+
+        $isdeletecheck =$this->db->query("SELECT COUNT(id)  From tasks where deleted_at is NULL AND project_id='$projectId'");
+        return $isdeletecheck->fetch(PDO::FETCH_NUM);
     }
 }

@@ -37,6 +37,9 @@ class UserController {
         $projectId=$id['projectId'];
         $allprojects=$this->userModel->getAllProductsFromDb();
         $particularTask=$this->userModel->listOffTasks($projectId);
+        $undeletedcount=$this->userModel->undeletedTaskcount($projectId);
+        $deletedcount=$this->userModel->deletedTaskcount($projectId);
+        var_dump($deletedcount);
         $projectid=$id['projectId'];
         require "views/home.php";
 
@@ -65,15 +68,15 @@ class UserController {
 
         $allprojects=$this->userModel->getAllProductsFromDb();
         $projectid=$id['projectId'];
+        $undeletedcount=$this->userModel->undeletedTaskcount($projectid);
+        $deletedcount=$this->userModel->deletedTaskcount($projectid);
 require "views/home.php";
 
     }
     function undeletedTask($id){
         $projectid=$id['projectId'];
         $this->particularProject($projectid);
-
-
-
     }
+    
 
 }
