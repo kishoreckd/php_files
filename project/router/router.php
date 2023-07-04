@@ -78,7 +78,7 @@ class router
                             $this->controller->createtask($_POST);
                             break;
                         case 'creatingtask':
-                            $this->controller->creatingtask($_POST);
+                            $this->controller->creatingtask($_POST,$_FILES);
                             break;
 
                         default:

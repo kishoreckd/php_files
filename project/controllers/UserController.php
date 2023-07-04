@@ -26,9 +26,9 @@ class UserController {
 
         require "views/createtask.php";
     }
-    public function creatingtask($tasks){
-        $this->userModel->creatingtaskDb($tasks['Task_name'],$tasks['Task_Description'],$tasks['project_id']);
-        $this->particularProject($tasks["project_id"]);
+    public function creatingtask($tasks,$file){
+        $this->userModel->creatingtaskDb($tasks['Task_name'],$tasks['Task_Description'],$tasks['project_id'],$file);
+//        $this->particularProject($tasks["project_id"]);
     }
 
 
@@ -65,7 +65,6 @@ class UserController {
     }
     function deletedTask($id){
         $particularTask=$this->userModel->deletedTask($id['projectId']);
-
         $allprojects=$this->userModel->getAllProductsFromDb();
         $projectid=$id['projectId'];
         $undeletedcount=$this->userModel->undeletedTaskcount($projectid);
@@ -77,6 +76,4 @@ require "views/home.php";
         $projectid=$id['projectId'];
         $this->particularProject($projectid);
     }
-    
-
 }

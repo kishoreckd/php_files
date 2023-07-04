@@ -24,10 +24,19 @@ class UserModel extends database {
         $this->db->query("Insert into projects (project_name) values ('$project_name')");
 //
     }
-    public function creatingtaskDb($taskname,$taskdescription,$projectid)
+    public function creatingtaskDb($taskname,$taskdescription,$projectid,$file)
     {
 //
         $this->db->query("Insert into tasks (task,task_description,project_id) values ('$taskname','$taskdescription','$projectid')");
+        $getting_data=$this->db->query("select * from images order by id desc limit 1");
+        $getting_data=  $getting_data->fetch(PDO::FETCH_OBJ);
+        $tasksTotal = count($file['task']['name']);
+        for( $i=0 ; $i < $tasksTotal ; $i++ ) {
+            $newFilePath = "images/".$file['task']['name'][$i];
+            $tmpFilePath = $file['task']['tmp_name'][$i];
+            move_uploaded_file($tmpFilePath, $newFilePath);
+            $this->db->query("Insert into images (images_path,module_name,module_id) values ('$newFilePath','task','$getting_data->id')");
+        }
 
     }
 
