@@ -56,7 +56,7 @@ class router
                 if ($router['action']) {
                     switch ($router['action']) {
                         case 'create':
-                            $this->controller->createNewProjects($_POST);
+                            $this->controller->createNewProjects($_POST,$_FILES);
                             break;
                         case 'project':
                             $this->controller->particularProject($_POST);

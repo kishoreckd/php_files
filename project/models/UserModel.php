@@ -19,16 +19,29 @@ class database
 class UserModel extends database {
     // Database connection and other necessary properties
 
-    public function insertdata($project_name)
+    public function insertdata($project_name,$file)
     {
         $this->db->query("Insert into projects (project_name) values ('$project_name')");
+        $getting_data=$this->db->query("select * from projects order by id desc limit 1");
+        $getting_data=  $getting_data->fetch(PDO::FETCH_OBJ);
+        var_dump($getting_data->id);
+
+        $tasksTotal = count($file['task']['name']);
+        for( $i=0 ; $i < $tasksTotal ; $i++ ) {
+            $newFilePath = "images/".$file['task']['name'][$i];
+            $tmpFilePath = $file['task']['tmp_name'][$i];
+            move_uploaded_file($tmpFilePath, $newFilePath);
+            $this->db->query("Insert into images (images_path,module_name,module_id) values ('$newFilePath','project','$getting_data->id')");
+        }
+
 //
     }
     public function creatingtaskDb($taskname,$taskdescription,$projectid,$file)
     {
 //
         $this->db->query("Insert into tasks (task,task_description,project_id) values ('$taskname','$taskdescription','$projectid')");
-        $getting_data=$this->db->query("select * from images order by id desc limit 1");
+        $getting_data=$this->db->query("select * from tasks order by id desc limit 1");
+        var_dump($getting_data);
         $getting_data=  $getting_data->fetch(PDO::FETCH_OBJ);
         $tasksTotal = count($file['task']['name']);
         for( $i=0 ; $i < $tasksTotal ; $i++ ) {

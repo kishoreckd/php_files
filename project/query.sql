@@ -28,3 +28,24 @@ id int NOT null AUTO_INCREMENT,
     PRIMARY KEY(id),
     FOREIGN KEY(tasks_id) REFERENCES tasks(id)
 );
+
+CREATE TABLE images(
+    id int AUTO_INCREMENT,
+    images_path varchar(255),
+    module_name int,
+    module_id int,
+    created_at timestamp,
+    updated_at timestamp,
+    PRIMARY KEY (id),
+    FOREIGN key (module_name) REFERENCES assigned(id) on DELETE CASCADE
+);
+
+
+CREATE TABLE assigned(
+id int NOT null AUTO_INCREMENT,
+    name varchar(255),
+    created_at timestamp,
+    updated_at timestamp,
+    PRIMARY key (id)
+);
+    

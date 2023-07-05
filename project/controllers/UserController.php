@@ -10,11 +10,11 @@ class UserController {
         $this->userModel = new UserModel();
     }
 
-    public function createNewProjects($project) {
+    public function createNewProjects($project,$file) {
         // Handle form submission for creating a new products
 //
-        if ($project){
-            $this->userModel->insertdata($project['project_name']);
+        if ($project and $file){
+            $this->userModel->insertdata($project['project_name'],$file);
             header("location:/");
         }
         else{

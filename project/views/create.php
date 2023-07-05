@@ -7,10 +7,12 @@
     <title>Create project</title>
 </head>
 <body>
-    <form action="/create" method="post">
+    <form action="/create" method="post" enctype="multipart/form-data">
     <h2>Create New project</h2>
         <label for="project">Product name</label>
         <input type="text"  id ="project"name ="project_name">
+        <label for="Project">Project images</label>
+        <input type="file" name="project[]" multiple="multiple">
         <button type ="submit"> create</button>
     </form>
     
