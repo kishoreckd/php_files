@@ -2,7 +2,7 @@
 
 $url=$_SERVER['REQUEST_URI'];
 $visit = urldecode($url);
-
+var_dump ($visit);
 $new_name = substr($visit,9);
 echo $new_name;
     if (strlen($new_name)<1)
@@ -40,20 +40,19 @@ try {
     //Server settings
     $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'sandbox.smtp.mailtrap.io';                     //Set the SMTP server to send through
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = '747ad098a6811c';                     //SMTP username
-    $mail->Password   = '88b803bee55b7d';                               //SMTP password
+    $mail->Username   = 'kishorekumarcdckap@gmail.com';                     //SMTP username
+    $mail->Password   = 'eecrdspikjuucsgp';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('kishorekumarcdckap@gmail.com', 'ki');
-    $mail->addAddress('k.usamarehan@gmail.com', 'rehan');     //Add a recipient
-    $mail->addAddress('ellen@example.com');               //Name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
-    $mail->addCC('cc@example.com');
-    $mail->addBCC('bcc@example.com');
+    $mail->setFrom('kishorekumarcdckap@gmail.com', 'kishore');
+    $mail->addAddress('jeevasdckap@gmail.com', 'chetta');     //Add a recipient
+    // $mail->addReplyTo('info@example.com', 'Information');
+    // $mail->addCC('cc@example.com');
+    // $mail->addBCC('bcc@example.com');
 
     //Attachments
     for ($i =2;$i<count($visitor_folder);$i++){
@@ -63,8 +62,8 @@ try {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->Subject = 'Sample mail from php';
+    $mail->Body    = 'Hi Jeeva I have don it!';
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
