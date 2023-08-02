@@ -1,14 +1,15 @@
 <?php
-require "controller/controller.php";
 
-class router{
-    public $router =[];
+class router
+{
+    public $router = [];
     public $controller;
 
     public function __construct()
     {
-        $this->controller=new controller();
+        $this->controller = new UserController();
     }
+
 
     public function get($uri, $action)
     {
@@ -55,28 +56,31 @@ class router{
                 if ($router['action']) {
                     switch ($router['action']) {
                         case 'create':
-                            $this->controller->createNewProjects($_POST);
+                            $this->controller->createNewProjects($_POST,$_FILES);
                             break;
-                        case 'listoftask':
-                            $this->controller->listOfTasks($_POST);
+                        case 'project':
+                            $this->controller->particularProject($_POST);
                             break;
+                        case 'taskdescription':
+                            $this->controller->taskdescription($_POST);
+                            break;
+                        case 'deletingtask':
+                            $this->controller->deletingtask($_POST);
+                            break;
+                        case 'deleted':
+                            $this->controller->deletedTask($_POST);
+                            break;
+                        case 'undeleted':
+                            $this->controller->undeletedTask($_POST);
+                            break;
+
                         case 'createtask':
                             $this->controller->createtask($_POST);
                             break;
-                        case 'addtask':
-                            $this->controller->addtask($_POST);
+                        case 'creatingtask':
+                            $this->controller->creatingtask($_POST,$_FILES);
                             break;
 
-                        case 'taskdescription':
-                             $this->controller->taskdescription($_POST);
-                             break;
-
-                        case 'delete':
-                            $this->controller->delete($_POST);
-                            break;
-                        case 'deleted':
-                            $this->controller->deleted($_POST);
-                            break;
                         default:
                             $this->controller->listOffAllProjects();
                     }
@@ -91,3 +95,6 @@ class router{
 
     }
 }
+
+
+

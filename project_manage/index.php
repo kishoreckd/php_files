@@ -1,18 +1,33 @@
 <?php
-require "router/router.php";
+require 'controllers/UserController.php';
+require 'router/router.php';
 
-$router =new router();
+$controller = new UserController();
+$router = new router();
 
-$router->get('/','default');
+$router->get('/','list');
 $router->post('/create','create');
-$router->post('/listoftask','listoftask');
 $router->post('/createtask','createtask');
-$router->post('/addtask','addtask');
+$router->post('/creatingtask','creatingtask');
+$router->post('/project','project');
 $router->post('/taskdescription','taskdescription');
-$router->post('/delete','delete');
+$router->post('/deletingtask','deletingtask');
 $router->post('/deleted','deleted');
+$router->post('/undeleted','undeleted');
+
+
+
+
+
+//$router->delete('/delete','delete');
+//$router->get('/view','view');
+//$router->patch('/edit','edit');
+
+
 
 
 
 
 $router->routing();
+
+//echo $router->routing();
